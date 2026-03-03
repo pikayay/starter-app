@@ -19,7 +19,7 @@ fi
 echo "Getting Supabase credentials..."
 OUTPUT=$(npx supabase status)
 URL=$(echo "$OUTPUT" | grep "Project URL" | awk '{print $4}')
-ANON_KEY=$(echo "$OUTPUT" | grep "anon key" | awk '{print $4}')
+ANON_KEY=$(echo "$OUTPUT" | grep "Publishable" | awk '{print $4}')
 
 if [ -z "$URL" ] || [ -z "$ANON_KEY" ]; then
   echo "Error: Could not find Supabase URL or anon key."
